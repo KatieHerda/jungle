@@ -5,7 +5,9 @@
   </header>
 
   <% if enhanced_cart.none? %>
-  Your cart is empty! 
+  <div class="alert alert-danger" role="alert">
+  Your cart is empty! Browse through products on Jungle's <%= link_to 'home page', root_path, class: 'alert-link' %>.
+  </div>
   <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
