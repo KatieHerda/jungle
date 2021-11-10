@@ -21,7 +21,9 @@
     <%= number_to_currency(product.price, precision: 2) %>
   </aside>
 
-  <aside class="sold-out">
-  Sold out!
-  </aside>
+  <% if product.quantity == 0 %>
+    <aside class="sold-out">
+    Sold out!
+    </aside>
+  <% end %>
 </article>
