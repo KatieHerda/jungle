@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   
-  resources :sessions, only [:new, :create, :delete]
-  resources :users, only [:new, :create]
+  resources :sessions, only: [:new, :create, :delete]
+  resources :users, only: [:new, :create]
 
   # #login
   # get '/login' => 'session#new'
