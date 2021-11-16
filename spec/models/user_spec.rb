@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
     end
 
     #last name required
-    it "is invalid without a first name" do
+    it "is invalid without a last name" do
       @user = User.new(first_name: "Jacky", last_name: nil, email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
       @user.save
       expect(@user).to_not be_valid
@@ -39,18 +39,27 @@ RSpec.describe User, type: :model do
     end
 
     #invalid without a password confirmation
-    it "is invalid without a password" do
+    it "is invalid without a password confirmation" do
       @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: nil)
       @user.save
       expect(@user).to_not be_valid
     end
 
     #invalid if password and password confirmation do not match
-      it "is invalid without a password" do
+      it "is invalid if password and password confirmation don't match" do
         @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "87654321")
         @user.save
         expect(@user).to_not be_valid
       end
+
+     #invalid if password is too short
+     it "is invalid if password is shorter than 5 characters" do
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "1234", password_confirmation: "1234")
+      @user.save
+      expect(@user).to_not be_valid
+    end
+
+
   end
 end
 
