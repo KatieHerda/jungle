@@ -10,49 +10,51 @@ RSpec.describe Product, type: :model do
 
       @product.save
 
-      expect(@product.category).to be_present
+      expect(@product.id).to be_present
     end
 
     #validates :name, presence: true
     it "should have a name" do
       @category = Category.new(name: "Games")
-      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+      @product = Product.new(name: nil, price: 123, quantity: 10, category: @category)
 
       @product.save
 
-      expect(@product.name).to eql("Jenga")
+      expect(@product.name).to be_nil
+      expect(@product).to_not be_valid
     end
 
     #validates :price, presence: true
     it "should have a price" do
       @category = Category.new(name: "Games")
-      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+      @product = Product.new(name: "Jenga", price: nil, quantity: 10, category: @category)
 
       @product.save
 
-      expect(@product.price).to be_present
-      expect(@product.price).to be_a_kind_of(Money)
+      expect(@product.price).to be_nil
+      expect(@product).to_not be_valid
     end
 
     #validates :quantity, presence: true
     it 'should have a quantity' do
       @category = Category.new(name: "Games")
-      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+      @product = Product.new(name: "Jenga", price: 123, quantity: nil, category: @category)
 
       @product.save
 
-      expect(@product.quantity).to be_present 
-      expect(@product.quantity).to be_a_kind_of(Integer) 
+      expect(@product.quantity).to be_nil
+      expect(@product).to_not be_valid
     end
 
     #validates :category, presence: true
     it 'should have a category' do
       @category = Category.new(name: "Games")
-      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: nil)
 
       @product.save
 
-      expect(@product.category).to be_present
+      expect(@product.category).to be_nil
+      expect(@product).to_not be_valid
     end 
   end
 end
