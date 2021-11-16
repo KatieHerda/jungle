@@ -81,15 +81,15 @@ RSpec.describe User, type: :model do
     end
 
     it "shoud return authenticated user if email case is not exact" do
-      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "JACKYj@mail.com", password: "12345678", password_confirmation: "12345678")
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
       @user.save
-      expect(User.authenticate_with_credentials(@user.email,@user.password)).to eq(@user)
+      expect(User.authenticate_with_credentials("JACKYj@mail.com", @user.password)).to eq(@user)
     end
 
     it "shoud return authenticated user if email has white space" do
-      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "  jackyj@mail.com  ", password: "12345678", password_confirmation: "12345678")
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
       @user.save
-      expect(User.authenticate_with_credentials(@user.email,@user.password)).to eq(@user)
+      expect(User.authenticate_with_credentials("  jackyj@mail.com  ", @user.password)).to eq(@user)
     end
   end
 end

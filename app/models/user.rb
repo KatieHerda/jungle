@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
     #if successfully authenticated, return instance of the user
 
     #cleans email for white space and case
-    email.downcase.strip
 
-    @user = User.find_by_email(email)
+
+    @user = User.find_by_email(email.downcase.strip)
     if @user
       #returns password (truthy) if password exists/matches
       if @user.authenticate(password)
