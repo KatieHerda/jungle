@@ -12,7 +12,6 @@ RSpec.describe Product, type: :model do
 
       expect(@product.id).to be_present
       expect(@product).to be_valid
-      expect(@product.name).to be_truthy
     end
 
     #validates :name, presence: true
