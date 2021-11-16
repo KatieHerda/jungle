@@ -22,6 +22,14 @@ RSpec.describe Product, type: :model do
       expect(@product.name).to eql("Jenga")
     end
 
+    #validates :price, presence: true
+    it "must have a price" do
+      @category = Category.new(name: "Games")
+      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+
+      expect(@product.price).to be_present
+      expect(@product.price).to be_a_kind_of(Money)
+    end
 
   end
 end
