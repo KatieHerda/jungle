@@ -17,6 +17,14 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
 
+    #last name required
+    it "is invalid without a first name" do
+      @user = User.new(first_name: "Jacky", last_name: nil, email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
+      @user.save
+      expect(@user).to_not be_valid
+    end
+
+
   end
 end
 
