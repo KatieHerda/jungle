@@ -45,7 +45,13 @@ group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
-end
+end 
+
+  group :test do
+    gem 'capybara'
+    gem 'poltergeist'
+    gem 'database_cleaner'
+  end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
