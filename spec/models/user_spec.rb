@@ -58,8 +58,27 @@ RSpec.describe User, type: :model do
       @user.save
       expect(@user).to_not be_valid
     end
+  end
 
+  describe '.authenticate_with_credentials' do
+    it "should return an authenticated user if given valid email and password" do
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
+      @user.save
 
+      expect(User.authenticate_with_credentials(@user.email, @user.password)).to eq(@user)
+    end
+
+    it "shoud not return an authenticated user if user email invalid" do
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
+      @user.save
+      expect(User.authenticate_with_credentials("some_email@mail.com", @user.password)).to be_nil
+    end
+
+    it "shoud not return an authenticated user if user email invalid" do
+      @user = User.new(first_name: "Jacky", last_name: "Johnson", email: "jackyj@mail.com", password: "12345678", password_confirmation: "12345678")
+      @user.save
+      expect(User.authenticate_with_credentials(@user.email, "some_password")).to be_nil
+    end
   end
 end
 

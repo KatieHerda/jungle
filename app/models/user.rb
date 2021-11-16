@@ -7,4 +7,15 @@ class User < ActiveRecord::Base
   validates :first_name,            presence: true
   validates :last_name,             presence: true
  
+  def self.authenticate_with_credentials(email, password)
+    #if successfully authenticated, return instance of the user
+    @user = User.find_by_email(email) 
+    if @user
+      #returns password (truthy) if password exists/matches
+      if @user.authenticate(password)
+        return @user
+      end
+    end
+    #if not, return nil - by default it returns nil
+  end
 end
