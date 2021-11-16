@@ -9,7 +9,7 @@ RSpec.describe Product, type: :model do
       @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
 
       @product.save
-      
+
       expect(@product.category).to be_present
     end
 
@@ -46,5 +46,13 @@ RSpec.describe Product, type: :model do
     end
 
     #validates :category, presence: true
+    it 'should have a category' do
+      @category = Category.new(name: "Games")
+      @product = Product.new(name: "Jenga", price: 123, quantity: 10, category: @category)
+
+      @product.save
+
+      expect(@product.category).to be_present
+    end 
   end
 end
