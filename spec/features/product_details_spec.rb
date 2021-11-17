@@ -28,7 +28,7 @@ RSpec.feature "Click on a product to see its details", type: :feature, js: true 
       sleep 1
 
       # commented out b/c it's for debugging only
-      save_screenshot
+      # save_screenshot
 
       # VERIFY
       expect(page).to have_css '.products-show'
