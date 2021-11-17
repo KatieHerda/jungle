@@ -27,7 +27,7 @@ RSpec.feature "Can add a product to the cart", type: :feature, js: true do
     page.all(".product .actions form")[0].click
 
     # commented out b/c it's for debugging only
-    save_screenshot
+    # save_screenshot
 
     # VERIFY cart after click
     expect(page).to have_css('.navbar-default .navbar-nav > li > a', text: "My Cart (1)")
