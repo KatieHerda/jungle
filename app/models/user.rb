@@ -6,12 +6,17 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :first_name,            presence: true
   validates :last_name,             presence: true
- 
+  before_save { email.downcase! }
+
   def self.authenticate_with_credentials(email, password)
     #if successfully authenticated, return instance of the user
 
+    email.downcase!
+    email.strip!
+    puts email
+
     #cleans email for white space and case
-    @user = User.find_by_email(email.downcase.strip)
+    @user = User.find_by_email(email)
     if @user
       #returns password (truthy) if password exists/matches
       if @user.authenticate(password)
