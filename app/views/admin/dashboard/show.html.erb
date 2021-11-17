@@ -18,10 +18,14 @@
       <td><h4>Products</h4></td>
       <td><h4><%= @product_count %></h4></td>
     </tr>
+    
+    
 
   </tbody>
 </table>
 
-<div>
-    <%= link_to 'All Products', [:admin, :products], class: 'btn btn-info' %>
-  </div>
+
+<div class="btn-toolbar">
+   <%= link_to 'All Categories', [:admin, :categories], class: 'btn btn-info' %>
+   <%= link_to 'All Products', [:admin, :products], class: 'btn btn-info' %>
+</div>
