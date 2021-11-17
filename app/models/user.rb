@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
 
     email.downcase!
     email.strip!
-    puts email
 
     #cleans email for white space and case
     @user = User.find_by_email(email)
