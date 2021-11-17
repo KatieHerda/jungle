@@ -20,16 +20,21 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
+* Ruby 2.3.5
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
 
 
 ## FINAL PRODUCT
-Here are some examples of what "Jungle" looks like. A user can sign up/login. They can add product items to their cart and checkout using stripe via test card. As an administrator, you can add new products and categories for those products. 
+Here are some examples of what "Jungle" looks like. A user can sign up/login. They can add product items to their cart and checkout using stripe via test card. As an administrator, you can add new products and categories for those products. However yo must enter secure admin username and password for access.
 
-<img alt="login page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/login.png?raw=true"> <img/>
+<img alt="signup page" width="400" src="https://github.com/KatieHerda/jungle/blob/master/docs/signup.png?raw=true"> <img/>
 
-<img alt="list home page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/list-home-page.png?raw=true"> <img/>
+<img alt="home page" width="400" src="https://github.com/KatieHerda/jungle/blob/master/docs/home_page.png?raw=true"> <img/>
 
-<img alt="category page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/category-page.png?raw=true"> <img/>
+<img alt="my cart page" width="400" src="https://github.com/KatieHerda/jungle/blob/master/docs/my_cart.png?raw=true"> <img/>
+
+<img alt="check out with stripe" width="400" src="https://github.com/KatieHerda/jungle/blob/master/docs/checkout.png?raw=true"> <img/>
+
+<img alt="admin products page" width="400" src="https://github.com/KatieHerda/jungle/blob/master/docs/admin_products.png?raw=true"> <img/>
